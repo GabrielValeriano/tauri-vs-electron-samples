@@ -1,0 +1,24 @@
+{
+  "name": "tauri-vs-electron-samples",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces":{
+    "packages": [
+      "hello-world/electron-hello-world","hello-world/tauri-hello-world"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lummiell/tauri-vs-electron-samples.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lummiell/tauri-vs-electron-samples/issues"
+  },
+  "homepage": "https://github.com/Lummiell/tauri-vs-electron-samples#readme"
+}
