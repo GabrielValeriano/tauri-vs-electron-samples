@@ -5,9 +5,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "workspaces":{
+  "workspaces": {
     "packages": [
-      "hello-world/electron-hello-world","hello-world/tauri-hello-world"
+      "hello-world/electron-hello-world",
+      "hello-world/tauri-hello-world",
+      "lottie-demo/tauri-lottie-demo",
+      "lottie-demo/electron-lottie-demo",
+      "image-demo/tauri-image-demo",
+      "image-demo/electron-image-demo"
     ]
   },
   "repository": {
