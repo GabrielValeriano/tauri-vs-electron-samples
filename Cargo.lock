@@ -2822,6 +2822,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "tauri-lottie-demo"
+version = "0.0.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+]
+
+[[package]]
 name = "tauri-macros"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"

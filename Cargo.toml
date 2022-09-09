@@ -1,5 +1,5 @@
 [workspace]
 
 members = [
-    "hello-world/tauri-hello-world/src-tauri","image-demo/tauri-image-demo/src-tauri"
+    "hello-world/tauri-hello-world/src-tauri","image-demo/tauri-image-demo/src-tauri","lottie-demo/tauri-lottie-demo/src-tauri"
 ]
