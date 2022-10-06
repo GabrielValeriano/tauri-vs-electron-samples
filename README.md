@@ -57,7 +57,7 @@ Set-ExecutionPolicy Bypass -Scope Process
 
 E então tente executar o script.
 
-Esse comando configura a política de execução para que qualquer script possa ser executado durante a sessão atual do PowerShell.
+Esse comando configura a política de execução para que qualquer script possa ser executado durante a sessão atual do PowerShell (`Bypass`).
 
 Após a execução do script, fechar e abrir o terminal após a execução dos comandos acima é suficiente para desfazer a configuração modificada da política de execução.
 
@@ -70,8 +70,8 @@ Também é possível executar os projetos manualmente. Para isso, entre na pasta
 Antes, instale as dependências do projeto:
 
 ```sh
-# Substitua o caminha abaixo pelo correto
-cd pasta/do_projeto/electron/ou_tauri
+# Substitua o caminho abaixo pelo correto
+cd pasta/do_projeto/Electron/ou_Tauri
 
 # Baixa as dependências:
 npm install
@@ -89,7 +89,7 @@ npm run tauri build
 
 Os arquivos gerados pelo comando `tauri build` ficam na pasta `{raiz do repositório}/target/release/bundle/`.
 
-- No Linux: `{raiz do repositório}/target/release/bundle/deb/`, arquivos com extensão `.deb` (Em distribuições linux que usam pacotes Debian)
+- No Linux: `{raiz do repositório}/target/release/bundle/deb/`, arquivos com extensão `.deb` (Em distribuições Linux que usam pacotes Debian)
 
 - No Windows: `{raiz do repositório}/target/release/bundle/msi/`, arquivos com a extensão `.msi`
 
@@ -108,7 +108,7 @@ Os arquivos gerados pelo comando `make` ficam na pasta `{raiz do projeto electro
 - No Linux: `{raiz do projeto electron}/out/make/deb/x64/`, arquivos com extensão `.deb` (Se foram feitos pacotes `.deb`)
 - No Windows: `{raiz do projeto electron}/out/make/squirrel.windows/x64/`, arquivos com extensão `.exe`
 
-No linux, pode ser necessário especificar o parâmetro `--targets` do comando `make` para que ele funcione. Por exemplo:
+No Linux, pode ser necessário especificar o parâmetro `--targets` do comando `make` para que ele funcione. Por exemplo:
 
 ```sh
 npm run make -- --target=@electron-forge/maker-deb
@@ -138,3 +138,17 @@ Aplicação que carrega diversas animações [Lottie](http://airbnb.io/lottie) a
 
 - Tauri: [/lottie-demo/tauri-lottie-demo/](/lottie-demo/tauri-lottie-demo/)
 - Electron: [/lottie-demo/electron-lottie-demo/](/lottie-demo/electron-lottie-demo/)
+
+## Nota sobre Workspaces
+
+Os pacotes Cargo deste repositório estão todos num mesmo [workspace Cargo](https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html),
+como pode ser visto no arquivo [Cargo.toml](/Cargo.toml).
+Isso foi feito para economizar tempo, já que o download das dependências de todos esses pacotes pode ser feito de uma vez.
+
+Porém, os pacotes NPM não estão juntos em um [workspace NPM](https://docs.npmjs.com/cli/v7/using-npm/workspaces),
+pois a ferramenta Electron Forge, ao executar o comando `package` dentro de um workspace, não consegue localizar
+(sem configurações e dependências adicionais) o executável do Electron, que passa a não estar mais na raiz do pacote.
+
+Por isso, todas as dependências NPM devem são baixadas separadamente e repetidamente (como no script de automação),
+e todas as dependências Cargo são baixadas ao mesmo tempo na execução do primeiro comando `build`
+(`tauri build`, no caso).
