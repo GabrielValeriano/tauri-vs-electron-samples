@@ -130,7 +130,5 @@ mkdir -p $proj_root/build/tauri
 tauri_build=$proj_root/build/tauri
 elec_build=$proj_root/build/electron
 cp $proj_root/target/release/bundle/deb/*.deb $tauri_build/ 
-cp $elec_hw_dir/out/make/deb/x64/*.deb $elec_build/
-cp $elec_img_dir/out/make/deb/x64/*.deb $elec_build/
-cp $elec_lottie_dir/out/make/deb/x64/*.deb $elec_build/
+find $proj_root -path "$proj_root/*/electron-*/out/make/deb/x64/*.deb" -exec cp "{}" $elec_build/ \;
 echo "Os pacotes de instalação foram copiados e estão localizados na pasta build/{nome da framework}"
