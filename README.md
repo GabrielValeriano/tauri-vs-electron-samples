@@ -17,6 +17,7 @@ Este repositório é uma adaptação das comparações do artigo ["macOS Perform
   - [Hello World](#hello-world)
   - [Image Demo](#image-demo)
   - [Lottie Demo](#lottie-demo)
+- [Nota sobre Workspaces](#nota-sobre-workspaces)
 
 ## Requisitos
 
@@ -37,7 +38,8 @@ bash build.sh
 Ou
 
 ```sh
-chmod +x build.sh # Fornecer permissão de execução do script
+# Fornecer permissão de execução do script
+chmod +x build.sh
 ./build.sh
 ```
 
@@ -57,7 +59,7 @@ Set-ExecutionPolicy Bypass -Scope Process
 
 E então tente executar o script.
 
-Esse comando configura a política de execução para que qualquer script possa ser executado durante a sessão atual do PowerShell (`Bypass`).
+Esse comando configura a política de execução para que qualquer script possa ser executado (`Bypass`) durante a sessão atual do PowerShell (`-Scope Process`).
 
 Após a execução do script, fechar e abrir o terminal após a execução dos comandos acima é suficiente para desfazer a configuração modificada da política de execução.
 
@@ -111,7 +113,7 @@ Os arquivos gerados pelo comando `make` ficam na pasta `{raiz do projeto electro
 No Linux, pode ser necessário especificar o parâmetro `--targets` do comando `make` para que ele funcione. Por exemplo:
 
 ```sh
-npm run make -- --target=@electron-forge/maker-deb
+npm run make -- --targets=@electron-forge/maker-deb
 ```
 
 Dessa forma, também é possível compilar para outras distribuições além das baseadas no Debian, e usar seu próprio compilador com o Electron Forge. Mais informações na [Documentação oficial](https://www.electronforge.io/cli#make).
@@ -149,6 +151,6 @@ Porém, os pacotes NPM não estão juntos em um [workspace NPM](https://docs.npm
 pois a ferramenta Electron Forge, ao executar o comando `package` dentro de um workspace, não consegue localizar
 (sem configurações e dependências adicionais) o executável do Electron, que passa a não estar mais na raiz do pacote.
 
-Por isso, todas as dependências NPM devem são baixadas separadamente e repetidamente (como no script de automação),
+Por isso, todas as dependências NPM devem ser baixadas separadamente e repetidamente (como no script de automação),
 e todas as dependências Cargo são baixadas ao mesmo tempo na execução do primeiro comando `build`
 (`tauri build`, no caso).
