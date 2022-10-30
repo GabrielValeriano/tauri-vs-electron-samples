@@ -1,31 +1,4 @@
-import lottie from "lottie-web";
-/**
- * This file will automatically be loaded by webpack and run in the "renderer" context.
- * To learn more about the differences between the "main" and the "renderer" context in
- * Electron, visit:
- *
- * https://electronjs.org/docs/latest/tutorial/process-model
- *
- * By default, Node.js integration in this file is disabled. When enabling Node.js integration
- * in a renderer process, please be aware of potential security implications. You can read
- * more about security risks here:
- *
- * https://electronjs.org/docs/tutorial/security
- *
- * To enable Node.js integration in this file, open up `main.js` and enable the `nodeIntegration`
- * flag:
- *
- * ```
- *  // Create the browser window.
- *  mainWindow = new BrowserWindow({
- *    width: 800,
- *    height: 600,
- *    webPreferences: {
- *      nodeIntegration: true
- *    }
- *  });
- * ```
- */
+import Lottie from "lottie-web";
 import A from "./lottie/A.json";
 import B from "./lottie/B.json";
 import C from "./lottie/C.json";
@@ -57,127 +30,7 @@ import BlinkingCursor from "./lottie/BlinkingCursor.json";
 import Colon from "./lottie/Colon.json";
 import Comma from "./lottie/Comma.json";
 
-const items = [
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
+const animationList = [
   A,
   B,
   C,
@@ -209,10 +62,13 @@ const items = [
   Colon,
   Comma,
 ];
-
-console.log(
-  '👋 This message is being logged by "renderer.js", included via webpack'
-);
+const items = [
+  ...animationList,
+  ...animationList,
+  ...animationList,
+  ...animationList,
+  ...animationList,
+];
 
 window.addEventListener("DOMContentLoaded", () => {
   makeListOfAnimations();
@@ -220,13 +76,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function makeListOfAnimations() {
   const lottieDiv = document.getElementById("lottie");
-
+  if (!lottieDiv || lottieDiv.childElementCount > 0) {
+    return;
+  }
   items.forEach(function (item) {
     const div = document.createElement("div");
+
     div.style.cssText = "width:50px; height:50px;";
     lottieDiv.appendChild(div);
 
-    lottie.loadAnimation({
+    Lottie.loadAnimation({
       container: div,
       animationData: item,
       renderer: "svg",

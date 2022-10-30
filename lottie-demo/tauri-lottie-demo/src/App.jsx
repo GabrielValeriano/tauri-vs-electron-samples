@@ -32,127 +32,7 @@ import BlinkingCursor from "./lottie/BlinkingCursor.json";
 import Colon from "./lottie/Colon.json";
 import Comma from "./lottie/Comma.json";
 
-const list = [
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
-  A,
-  B,
-  C,
-  D,
-  E,
-  F,
-  G,
-  H,
-  I,
-  J,
-  K,
-  L,
-  M,
-  N,
-  O,
-  P,
-  Q,
-  R,
-  S,
-  T,
-  U,
-  V,
-  W,
-  X,
-  Y,
-  Z,
-  Apostrophe,
-  BlinkingCursor,
-  Colon,
-  Comma,
+const animationList = [
   A,
   B,
   C,
@@ -184,18 +64,24 @@ const list = [
   Colon,
   Comma,
 ];
+const list = [
+  ...animationList,
+  ...animationList,
+  ...animationList,
+  ...animationList,
+  ...animationList,
+];
 function App() {
-  useEffect(() => {
-    const LottieDiv = document.getElementById("Lottie");
-    console.log("a");
-    if (!LottieDiv) {
-      console.log("nope");
+  function makeListOfAnimations() {
+    const lottieDiv = document.getElementById("lottie");
+    if (!lottieDiv || lottieDiv.childElementCount > 0) {
       return;
     }
-    list.forEach((item) => {
+    list.forEach((item, i) => {
       let div = document.createElement("div");
       div.style.cssText = "width:50px; height:50px;";
-      LottieDiv.appendChild(div);
+      div.key = i;
+      lottieDiv.appendChild(div);
 
       Lottie.loadAnimation({
         container: div,
@@ -203,13 +89,13 @@ function App() {
         renderer: "svg",
         loop: true,
         autoplay: true,
-        // rendererSettings: {
-        //     scaleMode: 'scale',
-        // }
       });
     });
+  }
+  useEffect(() => {
+    makeListOfAnimations();
   }, []);
-  return <div id="Lottie" style={{ display: "flex", flexWrap: "wrap" }}></div>;
+  return <div id="lottie" style={{ display: "flex", flexWrap: "wrap" }}></div>;
 }
 
 export default App;
