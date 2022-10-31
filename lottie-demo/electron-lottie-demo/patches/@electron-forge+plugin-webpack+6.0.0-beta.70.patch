@@ -1,0 +1,12 @@
+diff --git a/node_modules/@electron-forge/plugin-webpack/dist/WebpackPlugin.js b/node_modules/@electron-forge/plugin-webpack/dist/WebpackPlugin.js
+index 282fe05..466994b 100644
+--- a/node_modules/@electron-forge/plugin-webpack/dist/WebpackPlugin.js
++++ b/node_modules/@electron-forge/plugin-webpack/dist/WebpackPlugin.js
+@@ -278,6 +278,7 @@ the generated files). Instead, it is ${JSON.stringify(pj.main)}`);
+     getHooks() {
+         return {
+             prePackage: async (config, platform, arch)=>{
++                this.isProd = true;
+                 await _fsExtra.default.remove(this.baseDir);
+                 await _core.utils.rebuildHook(this.projectDir, await _core.utils.getElectronVersion(this.projectDir, await _fsExtra.default.readJson(_path.default.join(this.projectDir, 'package.json'))), platform, arch, config.rebuildConfig);
+                 await this.compileMain();
