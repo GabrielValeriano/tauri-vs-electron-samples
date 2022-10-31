@@ -1,5 +1,6 @@
 {
   "name": "electron-lottie-demo",
+  "private": true,
   "productName": "electron-lottie-demo",
   "version": "1.0.0",
   "description": "My Electron application description",

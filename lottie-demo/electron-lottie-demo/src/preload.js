@@ -30,7 +30,7 @@ import BlinkingCursor from "./lottie/BlinkingCursor.json";
 import Colon from "./lottie/Colon.json";
 import Comma from "./lottie/Comma.json";
 
-const animationList = [
+const lottieJSONList = [
   A,
   B,
   C,
@@ -62,12 +62,12 @@ const animationList = [
   Colon,
   Comma,
 ];
-const items = [
-  ...animationList,
-  ...animationList,
-  ...animationList,
-  ...animationList,
-  ...animationList,
+const animationList = [
+  ...lottieJSONList,
+  ...lottieJSONList,
+  ...lottieJSONList,
+  ...lottieJSONList,
+  ...lottieJSONList,
 ];
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -79,9 +79,8 @@ function makeListOfAnimations() {
   if (!lottieDiv || lottieDiv.childElementCount > 0) {
     return;
   }
-  items.forEach(function (item) {
+  animationList.forEach((item) => {
     const div = document.createElement("div");
-
     div.style.cssText = "width:50px; height:50px;";
     lottieDiv.appendChild(div);
 
@@ -91,9 +90,6 @@ function makeListOfAnimations() {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      // rendererSettings: {
-      //     scaleMode: 'scale',
-      // }
     });
   });
 }

@@ -32,7 +32,7 @@ import BlinkingCursor from "./lottie/BlinkingCursor.json";
 import Colon from "./lottie/Colon.json";
 import Comma from "./lottie/Comma.json";
 
-const animationList = [
+const lottieJSONList = [
   A,
   B,
   C,
@@ -64,12 +64,12 @@ const animationList = [
   Colon,
   Comma,
 ];
-const list = [
-  ...animationList,
-  ...animationList,
-  ...animationList,
-  ...animationList,
-  ...animationList,
+const animationList = [
+  ...lottieJSONList,
+  ...lottieJSONList,
+  ...lottieJSONList,
+  ...lottieJSONList,
+  ...lottieJSONList,
 ];
 function App() {
   function makeListOfAnimations() {
@@ -77,10 +77,9 @@ function App() {
     if (!lottieDiv || lottieDiv.childElementCount > 0) {
       return;
     }
-    list.forEach((item, i) => {
+    animationList.forEach((item) => {
       let div = document.createElement("div");
       div.style.cssText = "width:50px; height:50px;";
-      div.key = i;
       lottieDiv.appendChild(div);
 
       Lottie.loadAnimation({
