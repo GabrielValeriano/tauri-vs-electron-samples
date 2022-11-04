@@ -1,3 +1,4 @@
+const { ipcRenderer } = require("electron");
 window.addEventListener("DOMContentLoaded", () => {
   makeListOfImages();
 });
@@ -11,4 +12,5 @@ function makeListOfImages() {
     img.className = "customImage";
     imageList.appendChild(img);
   }
+  ipcRenderer.send("logTime");
 }

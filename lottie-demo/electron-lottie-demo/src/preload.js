@@ -1,3 +1,4 @@
+const { ipcRenderer } = require("electron");
 const lottie = require("lottie-web");
 const lottieJSONList = require("./lottie/index.js");
 const animationList = [
@@ -30,4 +31,5 @@ function makeListOfAnimations() {
       autoplay: true,
     });
   });
+  ipcRenderer.send("logTime");
 }
