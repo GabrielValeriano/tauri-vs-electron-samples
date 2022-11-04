@@ -11,4 +11,6 @@ function makeListOfImages() {
     img.className = "customImage";
     imageList.appendChild(img);
   }
+  const { invoke } = window.__TAURI__.tauri;
+  invoke("log_time");
 }

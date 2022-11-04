@@ -30,4 +30,6 @@ function makeListOfAnimations() {
       autoplay: true,
     });
   });
+  const { invoke } = window.__TAURI__;
+  invoke("log_time");
 }
