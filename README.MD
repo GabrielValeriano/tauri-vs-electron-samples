@@ -16,7 +16,7 @@ and is **heavily** based on the repository
 - [Compiling the projects with the automation script](#compiling-the-projects-with-the-automation-script)
   - [Linux](#linux)
   - [Windows](#windows)
-  - [Compiling and running the projects manually](#compiling-and-running-the-projects-manually)
+- [Compiling and running the projects manually](#compiling-and-running-the-projects-manually)
   - [Tauri Projects](#tauri-projects)
   - [Electron projects](#electron-projects)
 - [Applications in this repository](#applications-in-this-repository)
@@ -84,7 +84,7 @@ configuration made by the command above.
 More information:
 [about_Execution_Policies (Microsoft)](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1)
 
-### Compiling and running the projects manually
+## Compiling and running the projects manually
 
 It is possible to run the projects manually as well. To do this, change
 directories to the root of each project and run the adequate commands.
