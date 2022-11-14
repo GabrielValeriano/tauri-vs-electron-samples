@@ -18,6 +18,7 @@ Este repositório é uma adaptação das comparações do artigo ["macOS Perform
   - [Image Demo](#image-demo)
   - [Lottie Demo](#lottie-demo)
 - [Nota sobre Workspaces](#nota-sobre-workspaces)
+- [Sobre esse repositório/conclusão](#sobre-esse-repositórioconclusão)
 
 ## Requisitos
 
@@ -176,3 +177,22 @@ Por isso, todas as dependências NPM devem ser baixadas separadamente e
 repetidamente (como no script de automação), e todas as dependências Cargo são
 baixadas ao mesmo tempo e apenas uma vez na execução do primeiro comando `build`
 (`tauri build`, no caso).
+
+## Sobre esse repositório/conclusão
+
+Esse projeto foi usado para o desenvolvimento do meu Trabalho de Conclusão de
+Curso (TCC).
+
+No final, as comparações feitas confirmaram como a framework Tauri usa menos
+espaço de armazenamento que a Electron, e muitas diferenças de performance
+puderam ser observadas.
+
+Porém, o uso de CPU, o uso de memória, o uso de GPU e as taxas de quadro por
+segundo são dependentes do navegador web subjacente que cada framework utiliza.
+Esses navegadores podem chegar a ser diferentes ou até semelhantes. No Linux, se
+uma comparação for feita entre uma aplicação Electron e uma aplicação Tauri, os
+navegadores subjacentes dessas serão o Chromium para a Electron e o WebKitGTK
+para a Tauri, diferentes. No Windows, eles serão Chromium para a Electron e
+WebView2 para a Tauri, WebView2 é baseado no Chromium, e por isso é semelhante.
+Essa inconsistência torna essas métricas irrelevantes para a comparação das
+duas frameworks.

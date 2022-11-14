@@ -24,6 +24,7 @@ and is **heavily** based on the repository
   - [Image Demo](#image-demo)
   - [Lottie Demo](#lottie-demo)
 - [Note about workspaces](#note-about-workspaces)
+- [About this repository/conclusion](#about-this-repositoryconclusion)
 
 ## Prerequisites
 
@@ -181,3 +182,22 @@ Because of this, all NPM dependencies need to be downloaded separately and
 repeatedly (like in the automation script), and all Cargo dependencies are
 downloaded at the same time and only once on the first `build` command (in this
 case, `tauri build`).
+
+## About this repository/conclusion
+
+This project was developed for my final year project/Capstone course (or at
+least that's what Wikipedia tells me a
+[TCC](https://pt.wikipedia.org/wiki/Trabalho_de_conclus%C3%A3o_de_curso) is
+[called in english](https://en.wikipedia.org/wiki/Capstone_course)).
+
+In the end, the comparisons that were made have confirmed how Tauri uses much
+less storage space than Electron, and many performance differences between
+platforms could be observed.
+
+However, CPU usage, memory usage, GPU usage, and frame rates are dependant on
+the underlying browser that each framework uses. These browsers can range from
+being different to similar. On Linux, if you compare an Electron app and a Tauri
+app, the underlying browsers will be Chromium for Electron and WebKitGTK for
+Tauri, different. On Windows, they will be Chromium for Electron and WebView2
+for Tauri, Webview2 is based on Chromium, and this makes them very similar. This
+inconsistency makes these metrics not relevant for comparing both frameworks.
