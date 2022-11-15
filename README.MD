@@ -200,4 +200,6 @@ being different to similar. On Linux, if you compare an Electron app and a Tauri
 app, the underlying browsers will be Chromium for Electron and WebKitGTK for
 Tauri, different. On Windows, they will be Chromium for Electron and WebView2
 for Tauri, Webview2 is based on Chromium, and this makes them very similar. This
-inconsistency makes these metrics not relevant for comparing both frameworks.
+inconsistency makes these metrics not relevant for comparing both frameworks if
+they are individually observed and not put under the same umbrella of
+platform-specific differences.

@@ -195,4 +195,5 @@ navegadores subjacentes dessas serão o Chromium para a Electron e o WebKitGTK
 para a Tauri, diferentes. No Windows, eles serão Chromium para a Electron e
 WebView2 para a Tauri, WebView2 é baseado no Chromium, e por isso é semelhante.
 Essa inconsistência torna essas métricas irrelevantes para a comparação das
-duas frameworks.
+duas frameworks se consideradas individualmente, e não como um todo na categoria
+de diferenças entre plataformas.
